@@ -10,14 +10,13 @@ fn main() {
         return;
     };
 
-    Command::new(&program)
+    if let Err(e) = Command::new(&program)
         .args(args)
         .stderr(Stdio::null())
         .stdin(Stdio::null())
         .stdout(Stdio::null())
         .spawn()
-        .unwrap_or_else(|e| {
-            eprintln!("Failed to spawn child process: {}", e);
-            exit(1);
-        });
+    {
+        eprintln!("Failed to spawn child process: {}", e);
+    }
 }
