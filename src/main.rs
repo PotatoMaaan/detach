@@ -1,6 +1,6 @@
 use std::{
     env,
-    process::{exit, Command, Stdio},
+    process::{Command, Stdio},
 };
 
 fn main() {
